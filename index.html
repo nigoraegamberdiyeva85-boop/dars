@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoLife — Tabiatni asrash bugundan boshlanadi | Bosh sahifa</title>
+  <meta name="description" content="EcoLife — Ekologiya, tabiatni muhofaza qilish, qayta ishlash, suv va energiya tejash hamda yashil odatlarga bag'ishlangan zamonaviy interaktiv platforma.">
+  <meta name="keywords" content="ekologiya, tabiat, daraxt ekish, qayta ishlash, suvni tejash, energiyani tejash, yovvoyi tabiat, eco quiz">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <!-- Desktop Nav Menu (10 Pages) -->
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish" title="Rejimni almashtirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">
+          Eco<span>Life</span>
+        </a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="active">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+      <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        <button class="btn btn-secondary btn-sm theme-toggle-btn" style="width: 100%;">
+          Rejimni almashtirish 🌓
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish... (masalan: plastik, daraxt, panda)">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results">
+        <!-- Results rendered by main.js -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="badge-pill">
+            🌱 Yashil kelajak sari birgalikda
+          </span>
+          <h1 class="hero-title">
+            “Kichik odatlar.<br>
+            <span>Katta o‘zgarishlar.”</span>
+          </h1>
+          <p class="hero-subtitle">
+            “Tabiatni asrash bugundan boshlanadi.” Har bir tejalgan tomchi suv, o‘chirilgan chiroq va ekilgan nihol sayyoramiz kelajagiga qo‘shilgan ulkan hissadir.
+          </p>
+          <div class="hero-cta-group">
+            <a href="nature.html" class="btn btn-primary btn-lg btn-ripple">
+              EcoLife-ni boshlash ➔
+            </a>
+            <a href="#why-eco" class="btn btn-secondary btn-lg">
+              Ko‘proq bilish
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated Nature Scene (Trees, Leaves, Water, Mountains, Sunlight) -->
+        <div class="nature-scene-card reveal reveal-delay-2" aria-label="Interaktiv jonli tabiat manzarasi">
+          <svg class="nature-scene-svg" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="skyGrad" x1="300" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#bae6fd"/>
+                <stop offset="0.6" stop-color="#dbeafe"/>
+                <stop offset="1" stop-color="#f0fdf4"/>
+              </linearGradient>
+              <linearGradient id="sunGlow" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#fef08a"/>
+                <stop offset="1" stop-color="#f59e0b" stop-opacity="0.8"/>
+              </linearGradient>
+              <linearGradient id="mtnBack" x1="300" y1="120" x2="300" y2="320" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#64748b"/>
+                <stop offset="1" stop-color="#334155"/>
+              </linearGradient>
+              <linearGradient id="mtnFront" x1="300" y1="180" x2="300" y2="350" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#047857"/>
+                <stop offset="1" stop-color="#064e3b"/>
+              </linearGradient>
+              <linearGradient id="riverGrad" x1="0" y1="360" x2="600" y2="450" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="0.5" stop-color="#0284c7"/>
+                <stop offset="1" stop-color="#0369a1"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Sky -->
+            <rect width="600" height="450" fill="url(#skyGrad)"/>
+
+            <!-- Sunlight Rays -->
+            <circle cx="500" cy="90" r="48" fill="url(#sunGlow)" class="pulse-glow"/>
+            <polygon points="500,90 280,350 360,350" fill="#fef08a" fill-opacity="0.25" class="sunbeam-anim"/>
+            <polygon points="500,90 440,400 520,400" fill="#fef08a" fill-opacity="0.2" class="sunbeam-anim"/>
+
+            <!-- Distant Mountains -->
+            <polygon points="50,330 220,130 380,330" fill="url(#mtnBack)" opacity="0.6"/>
+            <polygon points="210,140 220,130 230,140 225,160 215,160" fill="#ffffff" opacity="0.9"/>
+            <polygon points="260,340 440,160 580,340" fill="url(#mtnBack)" opacity="0.8"/>
+            <polygon points="430,170 440,160 450,170 445,190 435,190" fill="#ffffff" opacity="0.9"/>
+
+            <!-- Foreground Rolling Hills & Forests -->
+            <path d="M-20 370 Q140 260 320 350 T620 340 L620 450 L-20 450 Z" fill="url(#mtnFront)"/>
+            
+            <!-- Flowing River Water with Wave animation -->
+            <path class="wave-animated" d="M-100 400 C80 370 200 440 380 400 C480 380 540 420 700 390 L700 460 L-100 460 Z" fill="url(#riverGrad)" opacity="0.85"/>
+            <path d="M-50 415 C100 390 240 445 420 415 C520 400 580 435 700 410 L700 460 L-50 460 Z" fill="#0ea5e9" opacity="0.4"/>
+
+            <!-- Swaying Trees -->
+            <g class="tree-sway">
+              <!-- Tree 1 -->
+              <rect x="110" y="290" width="14" height="65" fill="#78350f" rx="3"/>
+              <circle cx="117" cy="275" r="34" fill="#059669"/>
+              <circle cx="98" cy="265" r="26" fill="#10b981"/>
+              <circle cx="136" cy="265" r="26" fill="#34d399"/>
+
+              <!-- Tree 2 -->
+              <rect x="470" y="300" width="16" height="75" fill="#78350f" rx="3"/>
+              <circle cx="478" cy="285" r="42" fill="#047857"/>
+              <circle cx="455" cy="275" r="32" fill="#059669"/>
+              <circle cx="502" cy="275" r="32" fill="#10b981"/>
+
+              <!-- Small Pine Tree -->
+              <polygon points="260,340 275,300 290,340" fill="#065f46"/>
+              <polygon points="263,315 275,280 287,315" fill="#047857"/>
+            </g>
+
+            <!-- Floating Leaves in the air -->
+            <g class="floating-leaf">
+              <path d="M190 210 C200 195 220 200 225 215 C215 225 195 225 190 210 Z" fill="#10b981"/>
+            </g>
+            <g class="floating-leaf-fast">
+              <path d="M340 240 C350 225 370 230 375 245 C365 255 345 255 340 240 Z" fill="#84cc16"/>
+            </g>
+            <g class="floating-leaf-slow">
+              <path d="M420 180 C430 170 445 175 450 185 C440 195 425 190 420 180 Z" fill="#34d399"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ANIMATED STATISTICS SECTION -->
+    <section class="container">
+      <div class="stats-grid">
+        
+        <div class="stat-card reveal reveal-delay-1">
+          <span class="stat-icon">🌳</span>
+          <div class="stat-number nature-counter" data-target="1" data-suffix=" ta">0</div>
+          <div class="stat-label">1 tree planted (Har bir inson uchun)</div>
+          <p style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--text-muted);">Yiliga 22 kg CO₂ ni yutadi</p>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-2">
+          <span class="stat-icon">💧</span>
+          <div class="stat-number nature-counter" data-target="45000" data-suffix=" L">0</div>
+          <div class="stat-label">Water saved (O'rtacha tejash)</div>
+          <p style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--text-muted);">To'g'ri odatlar orqali</p>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-3">
+          <span class="stat-icon">♻️</span>
+          <div class="stat-number nature-counter" data-target="320" data-suffix=" kg">0</div>
+          <div class="stat-label">Waste recycled (Saralangan chiqindi)</div>
+          <p style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--text-muted);">Tabiatga qaytarilgan resurs</p>
+        </div>
+
+        <div class="stat-card reveal reveal-delay-4">
+          <span class="stat-icon">⚡</span>
+          <div class="stat-number nature-counter" data-target="1850" data-suffix=" kVt">0</div>
+          <div class="stat-label">Energy saved (Tejalgan energiya)</div>
+          <p style="font-size: 0.8rem; margin-top: 0.4rem; color: var(--text-muted);">LED va ongli iste'mol orqali</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SECTION: "NEGA EKOLOGIYA MUHIM?" -->
+    <section class="section" id="why-eco">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <span class="badge-pill">Burchimiz va kelajagimiz</span>
+          <h2 class="section-title">Nega ekologiya muhim?</h2>
+          <p class="section-subtitle">
+            Sayyoramiz — bu barcha tirik mavjudotlarning yagona umumiy uyi. Uning muvozanatini saqlash insoniyat salomatligi va farovonligining kafolatidir.
+          </p>
+        </div>
+
+        <div class="tri-cards-grid">
+          
+          <!-- Card 1 -->
+          <div class="feature-card glass-card reveal reveal-delay-1">
+            <div class="feature-icon-box">🌬️</div>
+            <h3 style="font-size: 1.45rem;">Toza Havo va Iqlim Barqarorligi</h3>
+            <p>
+              O'rmonlar, o'simliklar va okean fitoplanktonlari atmosferadagi karbonat angidridni yutib, biz nafas oladigan kislorodni ishlab chiqaradi. Toza havo — salomatlik va hayot manbaidir.
+            </p>
+            <a href="nature.html" style="font-weight: 600; color: var(--primary-600); margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem;">
+              Tabiat bilan tanishish ➔
+            </a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card glass-card reveal reveal-delay-2">
+            <div class="feature-icon-box">🐾</div>
+            <h3 style="font-size: 1.45rem;">Biologik Xilma-xillikni Asrash</h3>
+            <p>
+              Har bir hayvon, qush, hasharot va o'simlik murakkab ekologik zanjirning ajralmas halqasidir. Bitta turning yo'qolishi butun ekotizimning buzilishiga olib kelishi mumkin.
+            </p>
+            <a href="animals.html" style="font-weight: 600; color: var(--primary-600); margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem;">
+              Jonivorlarni asrash ➔
+            </a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card glass-card reveal reveal-delay-3">
+            <div class="feature-icon-box">🌍</div>
+            <h3 style="font-size: 1.45rem;">Kelajak Avlodlar Uchun Mas'uliyat</h3>
+            <p>
+              Yer resurslari cheksiz emas. Bugun qilingan kichik tejamkorlik va qayta ishlash odatlari farzandlarimizga toza suv, yashil o'rmonlar va sog'lom sayyora qoldirishga xizmat qiladi.
+            </p>
+            <a href="tips.html" style="font-weight: 600; color: var(--primary-600); margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem;">
+              20 ta foydali odat ➔
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. QUICK EXPLORE HIGHLIGHTS -->
+    <section class="section" style="background: var(--surface-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <span class="badge-pill">Platforma Imkoniyatlari</span>
+          <h2 class="section-title">EcoLife orqali nimalar qila olasiz?</h2>
+          <p class="section-subtitle">
+            Nazariyani amaliyotga aylantiring: interaktiv kalkulyatorlar, saralash o'yini, viktorina va virtual daraxt ekish.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+          <a href="recycling.html" class="glass-card reveal reveal-delay-1" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 2.8rem; margin-bottom: 1rem;">♻️</div>
+            <h4>Chiqindi Saralash O'yini</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Chiqindilarni to'g'ri qutilarga ajratib, o'z reytingingizni oshiring.</p>
+          </a>
+
+          <a href="water.html" class="glass-card reveal reveal-delay-2" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 2.8rem; margin-bottom: 1rem;">💧</div>
+            <h4>Suv Kalkulyatori</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Dush va kran suvidan foydalanish hajmini va tejash imkonini ko'ring.</p>
+          </a>
+
+          <a href="trees.html" class="glass-card reveal reveal-delay-3" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 2.8rem; margin-bottom: 1rem;">🌱</div>
+            <h4>Virtual Daraxt Ekish</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">Urug'dan ulkan daraxtgacha o'sishini kuzatib, o'rmon barpo eting.</p>
+          </a>
+
+          <a href="quiz.html" class="glass-card reveal reveal-delay-4" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 2.8rem; margin-bottom: 1rem;">🎯</div>
+            <h4>Eco Quiz Sinovi</h4>
+            <p style="font-size: 0.88rem; margin-top: 0.5rem;">10 ta qiziqarli savolga javob bering va Eco ballingizni bilib oling.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish" title="Yuqoriga chiqish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>
+            Kichik odatlar. Katta o‘zgarishlar. Biz birgalikda sayyoramizni yashilroq, tozarroq va xavfsizroq qila olamiz.
+          </p>
+          <div class="eco-pledge-badge">
+            🌿 100% Yashil Eko-Tashabbus
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Eng so'nggi tabiat yangiliklari va tejamkorlik maslahatlaridan xabardor bo'ling.
+          </p>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan. Tabiatni birgalikda asraylik!</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="tips.html">Bugungi Challenge</a>
+          <span>•</span>
+          <a href="quiz.html">Viktorina</a>
+          <span>•</span>
+          <a href="404.html">404 Sahifa</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/nature.js"></script>
+</body>
+</html>

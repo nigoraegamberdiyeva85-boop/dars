@@ -1,0 +1,910 @@
+/* ===================================================================
+   ECOLIFE - SPECIALIZED COMPONENT STYLES FOR ALL 10 PAGES
+   =================================================================== */
+
+/* --- HOME PAGE HERO & NATURE SCENE --- */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0 3rem;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-400), var(--accent-lime));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.25rem;
+  max-width: 540px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Nature Scene Illustration Box */
+.nature-scene-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(180deg, #dcfce7 0%, #bbefd4 40%, #86efac 100%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+[data-theme="dark"] .nature-scene-card {
+  background: linear-gradient(180deg, #0b2e22 0%, #064e3b 50%, #022c22 100%);
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.nature-scene-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Home Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-500);
+}
+
+.stat-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--primary-600);
+  margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .stat-number {
+  color: var(--primary-400);
+}
+
+.stat-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Three Cards: Nega Ekologiya Muhim? */
+.tri-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  padding: 2.25rem 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-500);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.feature-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--primary-100);
+  color: var(--primary-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+[data-theme="dark"] .feature-icon-box {
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--primary-300);
+}
+
+/* --- NATURE PAGE STYLES --- */
+.nature-audio-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.audio-wave-anim {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.audio-wave-anim span {
+  width: 3px;
+  background: var(--primary-500);
+  border-radius: 2px;
+  animation: waveBar 0.8s ease-in-out infinite alternate;
+}
+.audio-wave-anim span:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+.audio-wave-anim span:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+.audio-wave-anim span:nth-child(3) { height: 40%; animation-delay: 0.2s; }
+
+@keyframes waveBar {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+.ecosystem-section-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.ecosystem-section-item.reverse {
+  direction: rtl;
+}
+
+.ecosystem-section-item.reverse .ecosystem-content {
+  direction: ltr;
+}
+
+.ecosystem-graphic {
+  direction: ltr;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  background: var(--surface-alt);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.fact-highlight-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  border-left: 4px solid var(--primary-500);
+  font-size: 0.95rem;
+}
+
+/* --- RECYCLING PAGE & SORTING GAME --- */
+.recycling-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.recycling-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.recycling-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.recycling-icon {
+  font-size: 2.8rem;
+}
+
+.recycling-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-500);
+}
+
+/* Waste Sorting Game Area */
+.sorting-game-wrapper {
+  background: var(--surface-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.game-score-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 1.5rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+.sort-item-card {
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 2px dashed var(--primary-400);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.sort-item-card.sort-correct {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  transform: scale(1.05);
+}
+
+.sort-item-card.sort-wrong {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.bins-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.bin-target-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-fast);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.bin-target-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-500);
+  background: var(--surface-card);
+}
+
+.bin-icon {
+  font-size: 2.2rem;
+}
+
+/* --- WATER & ENERGY CALCULATORS --- */
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  font-size: 0.95rem;
+}
+
+.range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-full);
+  outline: none;
+  background: var(--surface-alt);
+  accent-color: var(--primary-500);
+}
+
+.calc-select, .calc-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--surface-alt);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.calc-select:focus, .calc-input:focus {
+  border-color: var(--primary-500);
+}
+
+/* Water Tank Graphic */
+.water-tank-container {
+  width: 140px;
+  height: 220px;
+  border: 3px solid var(--accent-sky);
+  border-radius: 18px 18px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  margin: 1.5rem auto;
+  background: rgba(14, 165, 233, 0.08);
+  box-shadow: inset 0 0 15px rgba(14, 165, 233, 0.15);
+}
+
+.water-tank-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.water-tank-wave {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: radial-gradient(circle at 50% 100%, #38bdf8 60%, transparent 62%);
+  background-size: 20px 10px;
+}
+
+/* Energy Animated Chart Bars */
+.chart-bar-group {
+  margin-bottom: 1.25rem;
+}
+
+.chart-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.chart-bar-track {
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- TREES PAGE STYLES --- */
+.tree-soil-stage {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.soil-bed {
+  width: 220px;
+  height: 24px;
+  background: #78350f;
+  border-radius: 50%;
+  margin-top: -10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.virtual-forest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-lg);
+  min-height: 140px;
+}
+
+.forest-tree-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: sproutGrowth 0.5s ease;
+}
+
+/* --- ANIMALS PAGE STYLES --- */
+.animals-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.chip-btn {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.chip-btn:hover, .chip-btn.active {
+  background: var(--primary-600);
+  color: #fff;
+  border-color: var(--primary-600);
+}
+
+.animals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.animal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.animal-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.animal-icon-wrapper {
+  font-size: 3.2rem;
+}
+
+.animal-status-tag {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.animal-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.animal-latin {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.animal-meta-box {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+/* Modal common styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 620px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+
+/* --- QUIZ PAGE STYLES --- */
+.quiz-wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.quiz-card {
+  padding: 3rem 2.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.quiz-progress-track {
+  height: 8px;
+  background: var(--surface-alt);
+  border-radius: var(--radius-full);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-lime));
+  transition: width 0.4s ease;
+}
+
+.quiz-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 2rem 0;
+}
+
+.quiz-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  border: 2px solid var(--border-color);
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+  border-color: var(--primary-500);
+  background: var(--surface-card);
+  transform: translateX(4px);
+}
+
+.quiz-opt-letter {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.quiz-option-btn.correct {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #10b981;
+  color: #065f46;
+}
+
+[data-theme="dark"] .quiz-option-btn.correct {
+  color: #34d399;
+}
+
+.quiz-option-btn.wrong {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+[data-theme="dark"] .quiz-option-btn.wrong {
+  color: #f87171;
+}
+
+.quiz-explanation {
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-alt);
+  border-left: 4px solid var(--primary-500);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Circular Score Gauge */
+.score-circle-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+}
+
+.score-circle-svg {
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--surface-alt);
+  stroke-width: 8;
+}
+
+.circle-progress {
+  fill: none;
+  stroke: var(--primary-500);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 339.29;
+  stroke-dashoffset: 339.29;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.score-circle-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--primary-600);
+}
+
+/* --- TIPS PAGE STYLES --- */
+.daily-challenge-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.1));
+  border: 2px solid var(--primary-400);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  margin-bottom: 4.5rem;
+  position: relative;
+}
+
+.daily-challenge-quote {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  margin: 1.5rem 0 2rem;
+  color: var(--text-primary);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.tip-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 4px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.tip-card.tip-completed {
+  border-left-color: var(--primary-500);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.tip-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tip-icon {
+  font-size: 2rem;
+}
+
+.tip-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.65rem;
+}
+
+.tip-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+/* Helpers */
+.hidden {
+  display: none !important;
+}
+
+/* Grid Breakpoints */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+  .tri-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .ecosystem-section-item, .ecosystem-section-item.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .recycling-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bins-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+  .animals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .recycling-grid {
+    grid-template-columns: 1fr;
+  }
+  .bins-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .animals-grid {
+    grid-template-columns: 1fr;
+  }
+}

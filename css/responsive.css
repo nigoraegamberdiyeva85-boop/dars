@@ -1,0 +1,107 @@
+/* ===================================================================
+   ECOLIFE - RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   =================================================================== */
+
+/* Large Tablets & Small Laptops (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .nav-menu-desktop {
+    gap: 0.15rem;
+  }
+  .nav-link {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.86rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Tablets & Mobile Navigation Switch (max-width: 960px) */
+@media (max-width: 960px) {
+  .nav-menu-desktop {
+    display: none;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+  .section {
+    padding: 3.5rem 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+/* Phones & Small Screens (max-width: 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .navbar-inner {
+    height: 4rem;
+  }
+  .brand-logo {
+    font-size: 1.35rem;
+  }
+  .brand-logo svg {
+    width: 28px;
+    height: 28px;
+  }
+  .section {
+    padding: 2.75rem 0;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .btn-lg {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.98rem;
+    width: 100%;
+  }
+  .glass-card {
+    padding: 1.35rem;
+    border-radius: var(--radius-md);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .toast {
+    min-width: 100%;
+  }
+  .back-to-top {
+    bottom: 1.25rem;
+    left: 1.25rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Accessibility Focus States & High Contrast Support */
+:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

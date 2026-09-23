@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Har bir tomchi muhim | EcoLife Suvni Tejash</title>
+  <meta name="description" content="Suvni tejashning 5 ta samarali usuli va interaktiv suv kalkulyatori. Xonadoningiz suv sarfini hisoblang.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Water</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link active">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html" class="active">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN WATER CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Hayot Manbai</span>
+        <h1 class="section-title">“Har bir tomchi muhim”</h1>
+        <p class="section-subtitle">
+          Sayyoramizdagi barcha suvning bor-yo‘g‘i 2.5 foizi chuchuk suvdir. Kichik kundalik odatlarimizni o‘zgartirish orqali yiliga o‘n minglab litr toza ichimlik suvini saqlab qolishimiz mumkin.
+        </p>
+      </div>
+
+      <!-- 1. FIVE PRACTICAL WAYS TO SAVE WATER -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4.5rem;">
+        
+        <!-- 1. Shorter showers -->
+        <div class="glass-card reveal reveal-delay-1" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🚿</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Qisqa dush qabul qilish</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Dush vaqtini 10 daqiqadan 5 daqiqagacha qisqartirish har bir cho‘milishda 50–60 litrgacha toza suvni tejaydi.
+          </p>
+        </div>
+
+        <!-- 2. Close the tap -->
+        <div class="glass-card reveal reveal-delay-2" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🚰</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Jumrakni yopib qo‘yish</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Tish yuvayotganda va qo‘lni sovunlayotganda kranni yopish bir martada 12–15 litr suv behuda oqishini to‘xtatadi.
+          </p>
+        </div>
+
+        <!-- 3. Collect rainwater -->
+        <div class="glass-card reveal reveal-delay-3" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🌧</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Yomg‘ir suvini yig‘ish</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Tom novlaridan oqib tushadigan yomg‘ir suvi xlorlanmagan va yumshoq bo‘lib, tomorqa va gullar uchun eng tabiiy ozuqadir.
+          </p>
+        </div>
+
+        <!-- 4. Water plants wisely -->
+        <div class="glass-card reveal reveal-delay-4" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🪴</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Oqilona sug‘orish</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            O‘simliklarni quyosh qizig‘ida emas, erta tongda yoki kechqurun sug‘oring. Bu bug‘lanishni 30 foizga kamaytiradi.
+          </p>
+        </div>
+
+        <!-- 5. Fix leaks -->
+        <div class="glass-card reveal reveal-delay-1" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🔧</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Oqishlarni bartaraf etish</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Sekin tomib turuvchi kran yoki tualet bakchasi oqishi sezilmasdan oyiga 500 dan 1000 litrgacha suvni isrof qiladi.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 2. WATER SAVING CALCULATOR SECTION -->
+      <section class="glass-card reveal" style="padding: 3rem 2.5rem;">
+        <div class="section-title-wrap" style="margin-bottom: 2.5rem;">
+          <span class="badge-pill">Interaktiv Hisoblagich</span>
+          <h2 class="section-title" style="font-size: 2.2rem;">Suv Sarfi va Tejash Kalkulyatori</h2>
+          <p class="section-subtitle">
+            Oila a'zolaringiz va kundalik dush odatlaringizni kiriting va xonadoningizning taxminiy suv sarfi va tejash imkoniyatlarini ko‘ring.
+          </p>
+        </div>
+
+        <div class="calculator-layout">
+          
+          <!-- Input Form -->
+          <form id="water-calc-form" onsubmit="event.preventDefault();">
+            
+            <!-- Showers per week -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>Haftada har bir a'zo qabul qiladigan dush:</span>
+                <span id="water-showers-val" style="color: var(--primary-600); font-weight: 700;">5 marta</span>
+              </label>
+              <input type="range" id="water-showers" class="range-slider" min="1" max="14" value="5" step="1">
+            </div>
+
+            <!-- Shower duration -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>Dushning o‘rtacha davomiyligi:</span>
+                <span id="water-duration-val" style="color: var(--primary-600); font-weight: 700;">10 daqiqa</span>
+              </label>
+              <input type="range" id="water-duration" class="range-slider" min="3" max="25" value="10" step="1">
+            </div>
+
+            <!-- Household size -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>Xonadondagi oila a'zolari soni:</span>
+                <span id="water-family-val" style="color: var(--primary-600); font-weight: 700;">3 kishi</span>
+              </label>
+              <input type="range" id="water-family" class="range-slider" min="1" max="8" value="3" step="1">
+            </div>
+
+            <!-- Tap habit checkbox -->
+            <div class="form-group" style="margin-top: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.95rem; font-weight: 500;">
+                <input type="checkbox" id="water-tap-habit" checked style="width: 18px; height: 18px; accent-color: var(--primary-500);">
+                <span>Tish yuvayotganda kran ko‘pincha ochiq qoladi</span>
+              </label>
+            </div>
+
+          </form>
+
+          <!-- Result & Water Tank Visualization -->
+          <div style="background: var(--surface-alt); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-color); text-align: center;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.25rem;">Xonadon Suv Ko‘rsatkichi</h3>
+
+            <!-- Dynamic Animated Water Tank -->
+            <div class="water-tank-container">
+              <div class="water-tank-fill" id="water-tank-fill" style="height: 50%;">
+                <div class="water-tank-wave"></div>
+              </div>
+            </div>
+
+            <!-- Results Data Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; text-align: left;">
+              <div style="padding: 0.85rem; background: var(--surface-card); border-radius: var(--radius-md);">
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Haftalik sarf:</div>
+                <div id="res-water-weekly" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-sky);">0 litr</div>
+              </div>
+
+              <div style="padding: 0.85rem; background: var(--surface-card); border-radius: var(--radius-md);">
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Oylik sarf:</div>
+                <div id="res-water-monthly" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-sky);">0 litr</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.12); border-radius: var(--radius-md); border-left: 4px solid var(--primary-500); text-align: left;">
+              <div style="font-size: 0.82rem; color: var(--text-muted);">Tejash mumkin bo‘lgan yillik miqdor:</div>
+              <div id="res-water-savings" style="font-size: 1.35rem; font-weight: 800; color: var(--primary-700);">0 litr</div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                Teng: <span id="res-water-bathtubs" style="font-weight: 700; color: var(--text-primary);">0 ta vanna</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bottom Next CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Energiyani tejang — kelajakni asrang</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          Elektr energiyasini tejashning oddiy sirlari va xonadoningiz uchun elektr kalkulyatori bilan tanishing.
+        </p>
+        <a href="energy.html" class="btn btn-primary btn-lg">
+          Energiyani tejash sahifasiga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Har tomchi suvni tejang.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="recycling.html">Qayta ishlash</a>
+          <span>•</span>
+          <a href="energy.html">Energiya</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/water.js"></script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiqindini imkoniyatga aylantiring | EcoLife Recycling</title>
+  <meta name="description" content="Chiqindilarni saralash va qayta ishlash qo'llanmasi hamda interaktiv saralash o'yini.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Recycling</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link active">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html" class="active">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN RECYCLING CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Aylana iqtisodiyot (Circular Economy)</span>
+        <h1 class="section-title">“Chiqindini imkoniyatga aylantiring”</h1>
+        <p class="section-subtitle">
+          Chiqindi — bu shunchaki o‘z o‘rnida bo‘lmagan qimmatbaho xomashyodir. Kategoriyalarni bosing, to‘g‘ri utilizatsiya qilish sirlarini o‘rganing va interaktiv saralash o‘yinida o‘zingizni sinab ko‘ring!
+        </p>
+      </div>
+
+      <!-- 1. INTERACTIVE RECYCLING CARDS (6 Categories) -->
+      <div class="recycling-grid">
+        
+        <!-- Plastic -->
+        <div class="recycling-card glass-card reveal reveal-delay-1" data-category="plastic">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">♻️</span>
+            <span class="badge-pill" style="color: #d97706; background: rgba(245, 158, 11, 0.15);">Plastik</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Plastik (Plastic)</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Ichimlik butilkalari, oziq-ovqat idishlari, polietilen paketlar.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+        <!-- Paper -->
+        <div class="recycling-card glass-card reveal reveal-delay-2" data-category="paper">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">📄</span>
+            <span class="badge-pill" style="color: #2563eb; background: rgba(59, 130, 246, 0.15);">Qog‘oz</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Qog‘oz (Paper)</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Gazeta, jurnallar, karton qutilar, ofis qog‘ozlari va kitoblar.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+        <!-- Glass -->
+        <div class="recycling-card glass-card reveal reveal-delay-3" data-category="glass">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">🍾</span>
+            <span class="badge-pill" style="color: #059669; background: rgba(16, 185, 129, 0.15);">Shisha</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Shisha (Glass)</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Sharbat va dori butilkalari, konserva bankalari, idishlar.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+        <!-- Metal -->
+        <div class="recycling-card glass-card reveal reveal-delay-1" data-category="metal">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">🥫</span>
+            <span class="badge-pill" style="color: #4b5563; background: rgba(107, 114, 128, 0.15);">Metall</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Metall (Metal)</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Alyuminiy kola bankalari, konserva qutilari, metall qopqoqlar.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+        <!-- Organic -->
+        <div class="recycling-card glass-card reveal reveal-delay-2" data-category="organic">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">🍎</span>
+            <span class="badge-pill" style="color: #65a30d; background: rgba(132, 204, 22, 0.15);">Organik</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Organik chiqindi (Organic)</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Meva-sabzavot po‘stloqlari, choy va qahva quyqasi, o‘tlar.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+        <!-- Batteries -->
+        <div class="recycling-card glass-card reveal reveal-delay-3" data-category="batteries">
+          <div class="recycling-card-top">
+            <span class="recycling-icon">🔋</span>
+            <span class="badge-pill" style="color: #dc2626; background: rgba(239, 68, 68, 0.15);">Batareyalar</span>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Batareyalar va E-chiqindi</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Barmoqli batareyalar, akkumulyatorlar, simlar, elektronika.
+          </p>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);">
+            Ko‘rsatmalarni ko‘rish ➔
+          </span>
+        </div>
+
+      </div>
+
+      <!-- 2. RECYCLING CATEGORY DETAILS MODAL -->
+      <div class="modal-overlay" id="recycling-modal" role="dialog" aria-modal="true">
+        <div class="modal-dialog">
+          <button class="modal-close-icon" id="rec-modal-close">✕</button>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <span id="rec-modal-icon" style="font-size: 3rem;">♻️</span>
+            <div>
+              <h2 id="rec-modal-title" style="font-size: 1.6rem;">Kategoriya nomi</h2>
+              <span class="badge-pill" style="margin-bottom: 0;">Yo‘riqnoma va Maslahat</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <h4 style="color: var(--primary-600); margin-bottom: 0.35rem;">📦 Bu nima?</h4>
+              <p id="rec-modal-desc" style="font-size: 0.95rem;"></p>
+            </div>
+            <div>
+              <h4 style="color: var(--primary-600); margin-bottom: 0.35rem;">🌱 Nega bu muhim?</h4>
+              <p id="rec-modal-why" style="font-size: 0.95rem;"></p>
+            </div>
+            <div>
+              <h4 style="color: var(--primary-600); margin-bottom: 0.35rem;">✅ Qanday to‘g‘ri topshirish kerak?</h4>
+              <p id="rec-modal-how" style="font-size: 0.95rem;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. INTERACTIVE WASTE SORTING MINI-GAME -->
+      <section class="sorting-game-wrapper reveal" id="sorting-game-area" style="margin-top: 3rem;">
+        <div class="section-title-wrap" style="margin-bottom: 2rem;">
+          <span class="badge-pill">Mini O‘yin</span>
+          <h2 class="section-title" style="font-size: 2.2rem;">Interaktiv Chiqindi Saralash O‘yini</h2>
+          <p class="section-subtitle">
+            Chiqindi elementini ko‘rib, uni to‘g‘ri qutiga yo‘naltiring. Har bir to‘g‘ri javob uchun 10 ball oling!
+          </p>
+        </div>
+
+        <!-- Score Header Bar -->
+        <div class="game-score-bar">
+          <div>🎯 Ball: <span id="game-score-val" style="color: var(--primary-600); font-size: 1.3rem;">0</span></div>
+          <div>🔥 Ketma-ket: <span id="game-streak-val" style="color: var(--accent-amber); font-size: 1.3rem;">0</span></div>
+          <div>📊 Chiqindi: <span id="game-progress-text" style="color: var(--text-muted);">1 / 12</span></div>
+        </div>
+
+        <!-- Active Item View -->
+        <div id="game-active-panel">
+          <p id="game-feedback-msg" style="text-align: center; font-weight: 600; min-height: 28px; margin-bottom: 1.5rem; font-size: 1.05rem;">
+            Chiqindini mos qutiga yo‘naltirish uchun qutini bosing:
+          </p>
+
+          <div class="sort-item-card" id="current-sort-card">
+            <div id="current-item-icon" style="font-size: 4.5rem; margin-bottom: 0.5rem;">🥤</div>
+            <h3 id="current-item-name" style="font-size: 1.4rem;">Plastik butilka</h3>
+          </div>
+
+          <!-- Bins Selection Row -->
+          <div class="bins-grid">
+            <button class="bin-target-btn" data-bin="plastic">
+              <span class="bin-icon">🟡</span>
+              <span>Plastik</span>
+            </button>
+            <button class="bin-target-btn" data-bin="paper">
+              <span class="bin-icon">🔵</span>
+              <span>Qog‘oz</span>
+            </button>
+            <button class="bin-target-btn" data-bin="glass">
+              <span class="bin-icon">🟢</span>
+              <span>Shisha</span>
+            </button>
+            <button class="bin-target-btn" data-bin="metal">
+              <span class="bin-icon">⚪</span>
+              <span>Metall</span>
+            </button>
+            <button class="bin-target-btn" data-bin="organic">
+              <span class="bin-icon">🟤</span>
+              <span>Organik</span>
+            </button>
+            <button class="bin-target-btn" data-bin="batteries">
+              <span class="bin-icon">🔴</span>
+              <span>Batareya</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Game Complete View -->
+        <div id="game-results-panel" class="hidden" style="text-align: center; padding: 2rem 1rem;">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+          <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">O‘yin yakunlandi!</h3>
+          <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+            Sizning to‘plagan umumiy ballingiz: <strong id="game-final-score" style="color: var(--primary-600); font-size: 1.6rem;">0</strong>
+          </p>
+          <div id="game-result-badge" class="badge-pill" style="font-size: 1.1rem; padding: 0.6rem 1.5rem; margin-bottom: 2rem;">
+            Master Ekolog!
+          </div>
+          <div>
+            <button class="btn btn-primary btn-lg" id="game-restart-btn">
+              Qayta o‘ynash 🔄
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Next CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Suv — bebaho hayot manbaidir</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          Suvni tejashning 5 ta oddiy usuli va xonadoningizning haftalik suv sarfini hisoblang.
+        </p>
+        <a href="water.html" class="btn btn-primary btn-lg">
+          Suvni tejash sahifasiga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Har bir saralangan qadoq tabiatni asraydi.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="nature.html">Tabiat</a>
+          <span>•</span>
+          <a href="water.html">Suvni tejash</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/recycling.js"></script>
+</body>
+</html>

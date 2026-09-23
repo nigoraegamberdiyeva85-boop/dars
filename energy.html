@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energiyani tejang — kelajakni asrang | EcoLife Energy</title>
+  <meta name="description" content="Energiyani tejashning 5 ta foydali odati va interaktiv elektr kalkulyatori. Elektr sarfi va xarajatini hisoblang.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Energy</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link active">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html" class="active">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN ENERGY CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Toza Energiya Sari</span>
+        <h1 class="section-title">“Energiyani tejang — kelajakni asrang”</h1>
+        <p class="section-subtitle">
+          Elektr energiyasining asosiy qismi qazilma yoqilg‘ilarni (gaz va ko‘mir) yoqish orqali olinadi. Har bir tejalgan kilovatt atmosferaga ajralib chiqadigan zaharli gazlarni kamaytiradi va oila byudjetini tejaydi.
+        </p>
+      </div>
+
+      <!-- 1. FIVE USEFUL ENERGY-SAVING HABITS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4.5rem;">
+        
+        <!-- 1. Turn off unnecessary lights -->
+        <div class="glass-card reveal reveal-delay-1" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">💡</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Keraksiz chiroqlarni o‘chiring</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Xonadan chiqayotganda chiroqni o‘chirish xonadonning oylik yoritish xarajatlarini 15-20 foizga qisqartiradi.
+          </p>
+        </div>
+
+        <!-- 2. Unplug unused devices -->
+        <div class="glass-card reveal reveal-delay-2" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">🔌</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Kutish rejimidagi qurilmalarni uzing</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Televizor, zaryadlagich va kompyuterlar o‘chirilgan bo‘lsa ham rozetkada qolsa elektr energiyasining 5-10% ini sarflaydi.
+          </p>
+        </div>
+
+        <!-- 3. Use AC wisely -->
+        <div class="glass-card reveal reveal-delay-3" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">❄️</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Konditsionerdan me'yorda foydalaning</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Optimal xona harorati 23–24°C. Har bir qo‘shimcha 1 daraja sovuqlashtirish elektr sarfini 8 foizga oshiradi.
+          </p>
+        </div>
+
+        <!-- 4. Natural light -->
+        <div class="glass-card reveal reveal-delay-4" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">☀️</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Tabiiy yorug‘likdan unumli foydalaning</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Kunduzi pardalarni oching va ish stolini deraza yaqiniga joylashtiring. Quyosh nuri ko‘z salomatligi uchun ham eng yaxshisidir.
+          </p>
+        </div>
+
+        <!-- 5. Screen time -->
+        <div class="glass-card reveal reveal-delay-1" style="display: flex; flex-direction: column;">
+          <div style="font-size: 2.8rem; margin-bottom: 1rem;">💻</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Keraksiz ekran vaqtini qisqartiring</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Monitorni ishlatmayotganda uyqu rejimiga o‘tkazing va yorqinligini (brightness) qulay darajagacha pasaytiring.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 2. ENERGY SAVING CALCULATOR SECTION -->
+      <section class="glass-card reveal" style="padding: 3rem 2.5rem;">
+        <div class="section-title-wrap" style="margin-bottom: 2.5rem;">
+          <span class="badge-pill">Interaktiv Hisoblagich</span>
+          <h2 class="section-title" style="font-size: 2.2rem;">Elektr Sarfi va Tejamkorlik Kalkulyatori</h2>
+          <p class="section-subtitle">
+            Xonadon ma'lumotlarini kiriting va kutilayotgan oylik sarf, xarajat hamda jonli animatsiyali diagrammani ko‘ring.
+          </p>
+        </div>
+
+        <div class="calculator-layout">
+          
+          <!-- Input Form -->
+          <form id="energy-calc-form" onsubmit="event.preventDefault();">
+            
+            <div class="form-group">
+              <label class="form-label">
+                <span>Chiroqlar kunlik yoqilgan o‘rtacha soat:</span>
+                <span id="energy-bulb-hours-val" style="color: var(--primary-600); font-weight: 700;">5 soat/kun</span>
+              </label>
+              <input type="range" id="energy-bulb-hours" class="range-slider" min="1" max="14" value="5" step="1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span>Amaldagi lampochkalar turi:</span>
+              </label>
+              <select id="energy-bulb-type" class="calc-select">
+                <option value="incandescent">Oddiy cho‘g‘lanma lampalar (60W)</option>
+                <option value="led">Tejamkor LED lampalar (9W)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span>Konditsioner yoki elektr isitgich ishlash vaqti:</span>
+                <span id="energy-ac-hours-val" style="color: var(--primary-600); font-weight: 700;">3 soat/kun</span>
+              </label>
+              <input type="range" id="energy-ac-hours" class="range-slider" min="0" max="14" value="3" step="1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span>Kutish rejimida rozetkada qoladigan qurilmalar:</span>
+                <span id="energy-standby-val" style="color: var(--primary-600); font-weight: 700;">4 ta qurilma</span>
+              </label>
+              <input type="range" id="energy-standby-devices" class="range-slider" min="1" max="12" value="4" step="1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <span>Xonadondagi xonalar soni:</span>
+                <span id="energy-rooms-val" style="color: var(--primary-600); font-weight: 700;">3 xona</span>
+              </label>
+              <input type="range" id="energy-rooms" class="range-slider" min="1" max="7" value="3" step="1">
+            </div>
+
+          </form>
+
+          <!-- Result & Animated Chart Breakdown -->
+          <div style="background: var(--surface-alt); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-color);">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.25rem; text-align: center;">Elektr Iste'moli Taqsimoti</h3>
+
+            <!-- Animated SVG / CSS Bars -->
+            <div style="margin: 1.5rem 0;">
+              
+              <!-- Lighting Bar -->
+              <div class="chart-bar-group">
+                <div class="chart-bar-meta">
+                  <span>💡 Yoritish sarfi</span>
+                  <span id="chart-pct-lighting">25%</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" id="chart-bar-lighting" style="width: 25%; background: #f59e0b;"></div>
+                </div>
+              </div>
+
+              <!-- Climate Bar -->
+              <div class="chart-bar-group">
+                <div class="chart-bar-meta">
+                  <span>❄️ Konditsioner / Isitish</span>
+                  <span id="chart-pct-climate">55%</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" id="chart-bar-climate" style="width: 55%; background: #06b6d4;"></div>
+                </div>
+              </div>
+
+              <!-- Standby Bar -->
+              <div class="chart-bar-group">
+                <div class="chart-bar-meta">
+                  <span>🔌 Kutish rejimidagi isrof</span>
+                  <span id="chart-pct-standby">20%</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" id="chart-bar-standby" style="width: 20%; background: #ec4899;"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Numbers Breakdown -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+              <div style="padding: 0.85rem; background: var(--surface-card); border-radius: var(--radius-md);">
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Oylik energiya:</div>
+                <div id="res-energy-kwh" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-amber);">0 kVt·soat</div>
+              </div>
+
+              <div style="padding: 0.85rem; background: var(--surface-card); border-radius: var(--radius-md);">
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Taxminiy xarajat:</div>
+                <div id="res-energy-cost" style="font-size: 1.2rem; font-weight: 800; color: var(--primary-600);">0 so'm</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.12); border-radius: var(--radius-md); border-left: 4px solid var(--primary-500);">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+                <span>Atmosferaga CO₂:</span>
+                <strong id="res-energy-co2" style="color: var(--text-primary);">0 kg CO₂</strong>
+              </div>
+              <div style="margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted);">
+                Tejash imkoniyati: <strong id="res-energy-savings" style="color: var(--primary-700);">0 so'm</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bottom Next CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Daraxtlar — sayyoramizning yashil qalqoni</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          Daraxt ekish bo‘yicha qo‘llanma va virtual o‘rmoningizni yaratish uchun daraxtlar sahifasiga o‘ting.
+        </p>
+        <a href="trees.html" class="btn btn-primary btn-lg">
+          Daraxtlar sahifasiga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Energiyani oqilona tejang.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="water.html">Suvni tejash</a>
+          <span>•</span>
+          <a href="trees.html">Daraxtlar</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/energy.js"></script>
+</body>
+</html>

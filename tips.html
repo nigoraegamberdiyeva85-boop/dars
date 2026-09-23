@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 ta foydali eco-odat | EcoLife Tips</title>
+  <meta name="description" content="Har kuni qilishingiz mumkin bo'lgan 20 ta amaliy eko-odat va Bugungi Eco Challenge topshirig'i.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Tips</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link active">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html" class="active">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN TIPS CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Kundalik Yashil Hayot</span>
+        <h1 class="section-title">“Har kuni qilishingiz mumkin bo‘lgan 20 ta foydali odat”</h1>
+        <p class="section-subtitle">
+          Sayyoramizni qutqarish uchun qahramonlik qilish shart emas. Har kuni oddiy, qulay va tejamkor odatlarga amal qilish kifoya.
+        </p>
+      </div>
+
+      <!-- 1. BUGUNGI ECO CHALLENGE WIDGET -->
+      <div class="daily-challenge-box reveal">
+        <span class="badge-pill" style="background: var(--surface-card);">🌟 Maxsus Eko-Topshiriq</span>
+        <h2 style="font-size: 2.2rem; margin-top: 0.5rem;">Bugungi Eco Challenge</h2>
+        
+        <p class="daily-challenge-quote" id="daily-challenge-text">
+          “Bugun bir martalik plastik butilka yoki paketdan umuman foydalanmang.”
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+          <button class="btn btn-primary btn-lg btn-ripple" id="challenge-done-btn">
+            Bajardim ✓
+          </button>
+
+          <div style="font-size: 1.05rem; font-weight: 600; padding: 0.75rem 1.25rem; background: var(--surface-card); border-radius: var(--radius-full); border: 1px solid var(--border-color);">
+            🔥 Ketma-ket faol kunlar: <span id="challenge-streak-count" style="color: var(--accent-amber); font-weight: 800; font-size: 1.2rem;">0</span> kun
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. TIPS FILTER BAR & COUNTER -->
+      <div class="animals-filter-bar reveal">
+        <div class="filter-chips">
+          <button class="chip-btn tip-filter-btn active" data-cat="all">Barchasi (20)</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Uyda">Uyda 🏠</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Xaridda">Xaridda 🛍️</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Ishxonada">Ishxonada 💼</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Tabiatda">Tabiatda 🏕️</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Yo'lda">Yo‘lda 🚲</button>
+          <button class="chip-btn tip-filter-btn" data-cat="Texnika">Texnika ⚡</button>
+        </div>
+
+        <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">
+          Siz o‘zlashtirgan odatlar: <strong id="completed-tips-count" style="color: var(--primary-600); font-size: 1.15rem;">0 / 20</strong>
+        </div>
+      </div>
+
+      <!-- 3. 20 ECO TIPS GRID (Rendered by tips.js) -->
+      <div class="tips-grid" id="tips-grid">
+        <!-- Injected via tips.js -->
+      </div>
+
+      <!-- Bottom Home CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Bosh sahifaga qaytish</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          EcoLife bilan tabiatni asrash sayohatini davom ettiring va do‘stlaringiz bilan ulashing.
+        </p>
+        <a href="index.html" class="btn btn-primary btn-lg">
+          Bosh sahifaga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Bugundan boshlab yashil odatlarni shakllantiring.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="quiz.html">Viktorina</a>
+          <span>•</span>
+          <a href="calculator.html">Kalkulyator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tips.js"></script>
+</body>
+</html>

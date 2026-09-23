@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siz qanchalik eco-smart siz? | EcoLife Quiz</title>
+  <meta name="description" content="10 ta savolli qiziqarli va interaktiv ekologik viktorina. O'z bilimingizni sinab ko'ring va Eco ballingizni aniqlang.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Quiz</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link active">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html" class="active">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN QUIZ CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Bilim Sinovi</span>
+        <h1 class="section-title">“Siz qanchalik eco-smart siz?”</h1>
+        <p class="section-subtitle">
+          Plastik, suv, energiya, o‘rmonlar va hayvonot olami bo‘yicha 10 ta muhim savolga javob bering va shaxsiy Eco Ballingizni aniqlang!
+        </p>
+      </div>
+
+      <!-- QUIZ ENGINE CARD -->
+      <div class="quiz-wrapper" id="quiz-engine-wrapper">
+        <div class="quiz-card glass-card reveal">
+
+          <!-- ACTIVE QUESTION VIEW -->
+          <div id="quiz-active-view">
+            
+            <!-- Progress Tracker -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; font-weight: 600; font-size: 0.92rem; color: var(--text-muted);">
+              <span>Jarayon</span>
+              <span id="quiz-progress-text">Savol 1 / 10</span>
+            </div>
+            
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill" id="quiz-progress-bar" style="width: 10%;"></div>
+            </div>
+
+            <!-- Question Title -->
+            <h2 id="quiz-question-title" style="font-size: 1.45rem; line-height: 1.35; margin-bottom: 1.5rem;">
+              Savol yuklanmoqda...
+            </h2>
+
+            <!-- Options Grid -->
+            <div class="quiz-options-grid" id="quiz-options-list">
+              <!-- Rendered by quiz.js -->
+            </div>
+
+            <!-- Educational Explanation Box (Hidden initially) -->
+            <div id="quiz-explanation-box" class="quiz-explanation hidden">
+              <p id="quiz-explanation-text"></p>
+            </div>
+
+            <!-- Next Button -->
+            <div style="text-align: right; margin-top: 1rem;">
+              <button class="btn btn-primary btn-lg hidden" id="quiz-next-btn">
+                Keyingi savol ➔
+              </button>
+            </div>
+
+          </div>
+
+          <!-- QUIZ RESULTS VIEW (Hidden initially) -->
+          <div id="quiz-results-view" class="hidden" style="text-align: center; padding: 1.5rem 0.5rem;">
+            
+            <span class="badge-pill" style="margin-bottom: 1.5rem;">Sinov Natijalari</span>
+            
+            <!-- Animated Circular Gauge -->
+            <div class="score-circle-wrapper">
+              <svg class="score-circle-svg" width="140" height="140" viewBox="0 0 120 120">
+                <circle class="circle-bg" cx="60" cy="60" r="54" />
+                <circle class="circle-progress" id="circle-progress-svg" cx="60" cy="60" r="54" />
+              </svg>
+              <div class="score-circle-number" id="circle-score-val">0%</div>
+            </div>
+
+            <div id="quiz-fraction-score" style="font-size: 1.15rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1rem;">
+              0 / 10 ta to‘g‘ri javob
+            </div>
+
+            <h2 id="quiz-result-title" style="font-size: 2.2rem; margin-bottom: 0.75rem;">
+              Natija aniqlanmoqda...
+            </h2>
+
+            <p id="quiz-result-msg" style="max-width: 540px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">
+              <!-- Feedback message -->
+            </p>
+
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn-primary btn-lg" id="quiz-restart-btn">
+                Qayta boshlash 🔄
+              </button>
+              <a href="calculator.html" class="btn btn-secondary btn-lg">
+                Karbon izini hisoblash ➔
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Next CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Ekologik izingizni bilib oling</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          Transport, energiya, suv va plastik iste'moli bo‘yicha ekologik izingizni hisoblang.
+        </p>
+        <a href="calculator.html" class="btn btn-primary btn-lg">
+          Eco Kalkulyatorga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Ekologik bilim sayyorani qutqaradi.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="animals.html">Jonivorlar</a>
+          <span>•</span>
+          <a href="calculator.html">Kalkulyator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

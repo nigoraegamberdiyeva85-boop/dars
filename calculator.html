@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekologik izingizni bilib oling | EcoLife Calculator</title>
+  <meta name="description" content="Shaxsiy ekologik iz va karbon sarfini baholash kalkulyatori. 5 ta asosiy soha bo'yicha ko'rsatkichlaringizni aniqlang.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Calculator</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link active">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html" class="active">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN CALCULATOR CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Ekologik Baholash</span>
+        <h1 class="section-title">“Ekologik izingizni bilib oling”</h1>
+        <p class="section-subtitle">
+          Transport, energiya, suv, plastik va chiqindilarni saralash odatlaringiz bo‘yicha 5 ta savolga javob bering va shaxsiy eko-izingizni aniqlang.
+        </p>
+      </div>
+
+      <!-- Prominent Educational Estimate Notice -->
+      <div class="glass-card reveal" style="border-left: 5px solid var(--accent-amber); padding: 1.25rem 1.75rem; margin-bottom: 3rem; background: rgba(245, 158, 11, 0.08);">
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <span style="font-size: 1.8rem;">⚠️</span>
+          <div>
+            <h4 style="font-size: 1.05rem; color: var(--accent-amber);">Ta'limiy Eslatma:</h4>
+            <p style="font-size: 0.92rem; color: var(--text-secondary);">
+              Ushbu hisob-kitob qat'iy ilmiy laboratoriya o‘lchovi emas, balki kundalik odatlaringizning tabiatga ta'sirini baholash va foydali tavsiyalar berishga mo‘ljallangan <strong>ta'limiy ko‘rsatkichdir</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALCULATOR FORM WRAPPER -->
+      <div class="quiz-wrapper">
+        <div class="glass-card reveal" style="padding: 3rem 2.5rem;">
+          
+          <form id="footprint-calc-form">
+            
+            <!-- 1. Transport -->
+            <div class="form-group" style="margin-bottom: 2.5rem;">
+              <label class="form-label" style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <span>🚗 1. Kundalik qatnovlarda asosan qaysi transportdan foydalanasiz?</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="transport" value="car_alone" required style="accent-color: var(--primary-500);">
+                  <span>Shaxsiy avtomobilda yolg‘iz yuraman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="transport" value="car_pool">
+                  <span>Hamrohlar bilan birga yoki taksida (Car-pooling)</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="transport" value="public">
+                  <span>Jamoat transporti (Avtobus, Metro)</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="transport" value="bike_walk">
+                  <span>Velosiped, samokat yoki asosan piyoda</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 2. Energy -->
+            <div class="form-group" style="margin-bottom: 2.5rem;">
+              <label class="form-label" style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <span>⚡ 2. Uyingizda elektr energiyasidan qanday foydalanasiz?</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="energy" value="high" required style="accent-color: var(--primary-500);">
+                  <span>Chiroqlar va konditsioner tez-tez keraksiz yoqilgan qoladi</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="energy" value="medium">
+                  <span>O‘rtacha me'yorda, lekin qurilmalarni rozetkadan uzmayman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="energy" value="low">
+                  <span>Barcha xonalarda LED bor, keraksiz chiroq va texnikalarni o‘chiraman</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 3. Water -->
+            <div class="form-group" style="margin-bottom: 2.5rem;">
+              <label class="form-label" style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <span>💧 3. Kundalik suv sarflashingiz qanday?</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="water" value="high" required style="accent-color: var(--primary-500);">
+                  <span>Uzoq dush (15+ daqiqa) qabul qilaman va kranni kam yopaman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="water" value="medium">
+                  <span>O‘rtacha 8-10 daqiqa dush, ba'zan tejamkorlikka e'tibor beraman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="water" value="low">
+                  <span>5 daqiqalik qisqa dush, kranlarni doim yopib qo‘yaman</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4. Plastic Use -->
+            <div class="form-group" style="margin-bottom: 2.5rem;">
+              <label class="form-label" style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <span>🥤 4. Bir martalik plastik va paketlardan qanchalik foydalanasiz?</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="plastic" value="high" required style="accent-color: var(--primary-500);">
+                  <span>Har kuni plastik butilka va yangi paketlar olaman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="plastic" value="medium">
+                  <span>Ba'zan o‘z sumkam bilan boraman, lekin paket ham olib turaman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="plastic" value="low">
+                  <span>Doim ko‘p martalik mato sumka va termos suv idishim bor</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 5. Recycling -->
+            <div class="form-group" style="margin-bottom: 2.5rem;">
+              <label class="form-label" style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <span>♻️ 5. Chiqindilarni saralash odatingiz qanday?</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="recycling" value="none" required style="accent-color: var(--primary-500);">
+                  <span>Barcha chiqindilarni bir qutiga tashlayman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="recycling" value="sometimes">
+                  <span>Faqat plastik butilka yoki makulaturani alohida yig‘aman</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--surface-alt);">
+                  <input type="radio" name="recycling" value="always">
+                  <span>Plastik, qog‘oz, shisha va batareyalarni doim to‘g‘ri saralayman</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="text-align: center;">
+              <button type="submit" class="btn btn-primary btn-lg btn-ripple">
+                Ekologik izimni hisoblash ➔
+              </button>
+            </div>
+
+          </form>
+
+          <!-- RESULTS VIEW -->
+          <div id="footprint-results" class="hidden" style="padding-top: 1rem;">
+            
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+              <span id="footprint-rating-badge" class="badge-pill" style="font-size: 1.05rem; padding: 0.5rem 1.4rem;">
+                Ajoyib Yashil Natija! 🌿
+              </span>
+              
+              <div style="margin: 1.5rem 0;">
+                <div style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-heading); color: var(--primary-600);" id="footprint-score-val">
+                  85 / 100
+                </div>
+                <div style="font-size: 1rem; color: var(--text-muted);">Sizning umumiy Eco Indeksingiz</div>
+              </div>
+
+              <!-- Progress Bar -->
+              <div style="height: 12px; border-radius: var(--radius-full); background: var(--surface-alt); max-width: 440px; margin: 0 auto 1.5rem; overflow: hidden;">
+                <div id="footprint-progress-bar" style="height: 100%; width: 85%; background: linear-gradient(90deg, var(--primary-500), var(--accent-lime)); transition: width 1s ease;"></div>
+              </div>
+
+              <div style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--surface-alt); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                Yillik taxminiy uglerod (karbon) izingiz: <strong id="footprint-carbon-tons" style="color: var(--text-primary); font-size: 1.15rem;">2.1 tonna CO₂ / yil</strong>
+              </div>
+            </div>
+
+            <!-- Practical Suggestions Box -->
+            <div style="background: var(--surface-alt); border-radius: var(--radius-md); padding: 1.75rem; border-left: 4px solid var(--primary-500); margin-bottom: 2.5rem;">
+              <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-700);">
+                💡 Siz uchun amaliy eko-tavsiyalar:
+              </h3>
+              <ul id="footprint-advice-list" style="display: flex; flex-direction: column; gap: 0.85rem; padding-left: 1.25rem;">
+                <!-- Advice items injected by calculator.js -->
+              </ul>
+            </div>
+
+            <div style="text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-lg" id="footprint-recalc-btn">
+                Qaytadan hisoblash 🔄
+              </button>
+              <a href="tips.html" class="btn btn-primary btn-lg">
+                20 ta Eko Odatni ko‘rish ➔
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Ekologik izingizni kamaytiring.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="quiz.html">Viktorina</a>
+          <span>•</span>
+          <a href="tips.html">Eko Odatlar</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>

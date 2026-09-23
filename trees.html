@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daraxtlar — sayyoramizning yashil qalqoni | EcoLife Trees</title>
+  <meta name="description" content="Daraxtlarning tabiatdagi ahamiyati, daraxt ekish va parvarishlash bo'yicha amaliy qo'llanma hamda virtual daraxt ekish moduli.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">EcoLife Trees</div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar-header">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo" aria-label="EcoLife Bosh sahifa">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="rgba(16,185,129,0.15)"/>
+          <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="url(#leafGrad)"/>
+          <path d="M12 52C26 40 38 28 52 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="12" y1="52" x2="52" y2="12">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Eco<span>Life</span>
+      </a>
+
+      <nav class="nav-menu-desktop" aria-label="Asosiy menyu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="nature.html" class="nav-link">Nature</a>
+        <a href="recycling.html" class="nav-link">Recycling</a>
+        <a href="water.html" class="nav-link">Water</a>
+        <a href="energy.html" class="nav-link">Energy</a>
+        <a href="trees.html" class="nav-link active">Trees</a>
+        <a href="animals.html" class="nav-link">Animals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="calculator.html" class="nav-link">Eco Calculator</a>
+        <a href="tips.html" class="nav-link">Eco Tips</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn search-open-btn" aria-label="Qidiruv" title="Qidiruv (Ctrl+K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Rejimni o'zgartirish">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+          </svg>
+        </button>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mobil menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">Eco<span>Life</span></a>
+        <button class="search-close-btn" id="drawer-close-btn">✕ Yopish</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">🏠 Bosh sahifa (Home)</a></li>
+        <li><a href="nature.html">🌿 Tabiat (Nature)</a></li>
+        <li><a href="recycling.html">♻️ Qayta ishlash (Recycling)</a></li>
+        <li><a href="water.html">💧 Suvni tejash (Water)</a></li>
+        <li><a href="energy.html">⚡ Energiyani tejash (Energy)</a></li>
+        <li><a href="trees.html" class="active">🌳 Daraxtlar (Trees)</a></li>
+        <li><a href="animals.html">🐾 Jonivorlar (Animals)</a></li>
+        <li><a href="quiz.html">🎯 Eco Viktorina (Quiz)</a></li>
+        <li><a href="calculator.html">📊 Eco Kalkulyator</a></li>
+        <li><a href="tips.html">💡 20 ta Eko Odat (Tips)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEARCH MODAL -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-box-wrap">
+      <div class="search-input-header">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Sayt bo'ylab qidirish...">
+        <button class="search-close-btn" id="search-close-btn">ESC</button>
+      </div>
+      <ul class="search-results-list" id="search-results"></ul>
+    </div>
+  </div>
+
+  <!-- MAIN TREES CONTENT -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Yashil Sayyora Himoyachilari</span>
+        <h1 class="section-title">“Daraxtlar — sayyoramizning yashil qalqoni”</h1>
+        <p class="section-subtitle">
+          Bitta daraxt — bu butun bir ekotizimdir. U havoni tozalaydi, changni tutib qoladi, shahar shovqinini yutadi va yuzlab jonivorlarga oziqa va boshpana beradi.
+        </p>
+      </div>
+
+      <!-- 1. VIRTUAL TREE PLANTING INTERACTIVE MODULE -->
+      <section class="glass-card reveal" id="virtual-tree" style="padding: 3rem 2rem; margin-bottom: 5rem; text-align: center;">
+        <span class="badge-pill">Interaktiv Tajriba</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Virtual Daraxt Ekish 🌱</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">
+          Tugmani bosing va ekranda urug‘dan ulkan yashil daraxt ulg‘ayishini tomosha qiling. Har bir ekilgan daraxt sizning virtual o‘rmoningizga qo‘shiladi!
+        </p>
+
+        <!-- Dynamic Tree Stage Graphic -->
+        <div class="tree-soil-stage" id="tree-growth-stage">
+          <div class="tree-full-anim tree-sway">
+            <span style="font-size: 8rem;">🌳</span>
+            <div class="soil-bed"></div>
+          </div>
+        </div>
+
+        <p id="tree-stage-label" style="font-weight: 700; color: var(--primary-600); margin: 1.5rem 0 2rem; min-height: 24px;">
+          Yangi daraxt ekishga tayyormisiz? Tugmani bosing!
+        </p>
+
+        <!-- Action & Counter -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 1.25rem;">
+          <button class="btn btn-primary btn-lg btn-ripple" id="plant-tree-btn">
+            Virtual daraxt ekish 🌱
+          </button>
+
+          <div style="font-size: 1.3rem; font-weight: 700; margin-top: 0.5rem;">
+            Siz ekkan daraxtlar: <span id="user-tree-count" style="color: var(--primary-600); font-size: 1.6rem;">0</span> ta
+          </div>
+        </div>
+
+        <!-- User Virtual Forest Grove -->
+        <div style="margin-top: 3rem; text-align: left;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem;">🌲 Sizning Virtual O‘rmoningiz:</h4>
+            <button id="reset-trees-btn" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">
+              Qayta boshlash
+            </button>
+          </div>
+          <div class="virtual-forest-grid" id="virtual-forest-grid">
+            <!-- Trees rendered by trees.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. WHY TREES ARE IMPORTANT & HOW THEY HELP NATURE -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 5rem;">
+        
+        <div class="glass-card reveal">
+          <span class="badge-pill">Tabiiy Mo‘jiza</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Nega daraxtlar muhim?</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">🌬️</span>
+              <div>
+                <strong>Kislorod fabrikasi:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Bitta yetuk daraxt yiliga 118 kg kislorod ishlab chiqaradi va 22 kg gacha karbonat angidridni yutadi.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">❄️</span>
+              <div>
+                <strong>Tabiiy konditsioner:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Daraxtlar soyasi yozgi issiqda havo haroratini 2 dan 8 darajagacha pasaytiradi.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">🛡️</span>
+              <div>
+                <strong>Tuproq himoyasi:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Ularning baquvvat ildizlari tuproqni yuvilib ketish va qurg‘oqchilik chang bo‘ronlaridan asraydi.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-2">
+          <span class="badge-pill">Ekologik Zanjir</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Tabiatga qanday yordam beradi?</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">🦉</span>
+              <div>
+                <strong>Bioxilma-xillik uyi:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Qushlar, sincaplar, foydali hasharotlar va qo‘ziqorinlar daraxtlar bilan uzviy simbiozda yashaydi.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">💧</span>
+              <div>
+                <strong>Suv aylanishi regulyatori:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Daraxtlar yer osti suvlarini filtrlaydi va yomg‘ir yog‘ish siklini me'yorda ushlab turadi.</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 0.75rem;">
+              <span style="font-size: 1.4rem;">🔇</span>
+              <div>
+                <strong>Shovqin va chang to‘sig‘i:</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Katta yo‘l yoqasidagi daraxtlar shahar changining 75% ini va transport shovqinini sezilarli darajada to‘sadi.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 3. HOW TO PLANT A TREE & CARE FOR A YOUNG TREE -->
+      <div class="section-title-wrap reveal">
+        <span class="badge-pill">Amaliy Yo‘riqnoma</span>
+        <h2 class="section-title">Ko‘chat ekish va parvarishlashning 4 bosqichi</h2>
+        <p class="section-subtitle">
+          Daraxt ekish shunchaki niholni yerga qadash emas, uning ildiz otishi va mustahkam ulg‘ayishini ta'minlashdir.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+        
+        <div class="glass-card reveal reveal-delay-1">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">1️⃣</div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Chuqur qazish</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Chuqur kengligi ko‘chat ildizi to‘pidan 2-3 barobar keng, chuqurligi esa ildiz bo‘g‘ziga teng bo‘lishi kerak.
+          </p>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-2">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">2️⃣</div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Ildizni to‘g‘rilash</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Ko‘chatni chuqur markaziga tik o‘rnating. Ildizlarini ehtiyotkorlik bilan yoyib, havo bo‘shliqlarisiz tuproq seping.
+          </p>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-3">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">3️⃣</div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">To‘yintirib sug‘orish</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Ekilgach darhol 10–20 litr suv quying. Bu tuproqni ildizga zichlab, havo tiqinlarini bartaraf qiladi.
+          </p>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-4">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">4️⃣</div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Yosh nihol parvarishi</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Birinchi yilda haftada 1-2 marta muntazam sug‘oring, atrofidagi begona o‘tlarni tozalang va mulchalang.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Next CTA -->
+      <div class="glass-card reveal" style="text-align: center; padding: 3rem 2rem; margin-top: 4.5rem;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Yovvoyi tabiatni asraylik</h3>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted);">
+          Sayyoramizning eng noyob va go‘zal jonivorlari, ularning yashash muhiti bilan tanishing.
+        </p>
+        <a href="animals.html" class="btn btn-primary btn-lg">
+          Jonivorlar sahifasiga o‘tish ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Yuqoriga qaytish">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none">
+              <path d="M12 52C16 36 28 20 52 12C52 36 36 48 12 52Z" fill="#10B981"/>
+            </svg>
+            Eco<span>Life</span>
+          </a>
+          <p>Kichik odatlar. Katta o‘zgarishlar. Bugun yangi daraxt eking.</p>
+          <div class="eco-pledge-badge">🌿 100% Yashil Eko-Tashabbus</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bo'limlar</h4>
+          <ul class="footer-links">
+            <li><a href="nature.html">Tabiat (Nature)</a></li>
+            <li><a href="recycling.html">Qayta ishlash</a></li>
+            <li><a href="water.html">Suvni tejash</a></li>
+            <li><a href="energy.html">Energiyani tejash</a></li>
+            <li><a href="trees.html">Daraxtlar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Interaktiv</h4>
+          <ul class="footer-links">
+            <li><a href="animals.html">Jonivorlar katalogi</a></li>
+            <li><a href="quiz.html">Eco Viktorina</a></li>
+            <li><a href="calculator.html">Karbon iz kalkulyatori</a></li>
+            <li><a href="tips.html">20 ta Eko Odat</a></li>
+            <li><a href="trees.html#virtual-tree">Virtual daraxt ekish</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Eko-Xabarlar</h4>
+          <form id="footer-subscribe-form" style="display: flex; gap: 0.5rem; flex-direction: column;">
+            <input type="email" placeholder="Elektron pochtangiz" class="calc-input" required style="font-size: 0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Obuna bo'lish ➔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 EcoLife. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html">Bosh sahifa</a>
+          <span>•</span>
+          <a href="energy.html">Energiya</a>
+          <span>•</span>
+          <a href="animals.html">Jonivorlar</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/trees.js"></script>
+</body>
+</html>
